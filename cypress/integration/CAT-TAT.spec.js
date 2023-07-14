@@ -8,7 +8,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT')
     })
 
-    it.only('preenche os campos obrigatórios e envia o formulário', function() {
+    it('preenche os campos obrigatórios e envia o formulário', function() {
         const longText = "TEste teste teste teste teste teste teste test te tetstes testet ststesttes tetstst ";
         cy.get('#firstName').type('Elvercio')
         cy.get('#lastName').type('Neto')
@@ -32,7 +32,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
     
 
-    it.only('campo telefone continua vazio quando preenchido com valor não-numérico', function() {
+    it('campo telefone continua vazio quando preenchido com valor não-numérico', function() {
         cy.get('#phone')
         .type('abcdefg')
         .should('have.value', '')
@@ -66,7 +66,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
                
         cy.get('.error').should('be.visible')
     })
-    it.only('envia o formuário com sucesso usando um comando customizado', function() {
+    it('envia o formuário com sucesso usando um comando customizado', function() {
         cy.fillMandatoryFieldsAndSubmit()
 
         cy.get('.success').should('be.visible')
